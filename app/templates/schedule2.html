@@ -1,0 +1,105 @@
+{%extends "base.html"%}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% block title%} Расписание {%endblock%}
+{% block content %}
+
+<div class="page-wrapper">
+    <h2>Текущее расписание</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <table class="list-from-db table table-striped table-sm">
+            <tr>
+                <th>№ Урока</th>
+                <th>Понедельник</th>
+                <th>Вторник</th>
+                <th>Среда</th>
+                <th>Четверг</th>
+                <th>Пятница</th>
+                <th>Суббота</th>
+            </tr>
+
+            <tr>
+                <td>1 урок</td>
+                <td>{{form.monday1}}</td>
+                <td>{{form.tuesday1}}</td>
+                <td>{{form.wednesday1}}</td>
+                <td>{{form.thursday1}}</td>
+                <td>{{form.friday1}}</td>
+                <td>{{form.saturday1}}</td>
+            </tr>
+            <tr>
+                <td>2 урок</td>
+                <td>{{form.monday2}}</td>
+                <td>{{form.tuesday2}}</td>
+                <td>{{form.wednesday2}}</td>
+                <td>{{form.thursday2}}</td>
+                <td>{{form.friday2}}</td>
+                <td>{{form.saturday2}}</td>
+            </tr>
+            <tr>
+                <td>3 урок</td>
+                <td>{{form.monday3}}</td>
+                <td>{{form.tuesday3}}</td>
+                <td>{{form.wednesday3}}</td>
+                <td>{{form.thursday3}}</td>
+                <td>{{form.friday3}}</td>
+                <td>{{form.saturday3}}</td>
+            </tr>
+            <tr>
+                <td>4 урок</td>
+                <td>{{form.monday4}}</td>
+                <td>{{form.tuesday4}}</td>
+                <td>{{form.wednesday4}}</td>
+                <td>{{form.thursday4}}</td>
+                <td>{{form.friday4}}</td>
+                <td>{{form.saturday4}}</td>
+            </tr>
+            <tr>
+                <td>5 урок</td>
+                <td>{{form.monday5}}</td>
+                <td>{{form.tuesday5}}</td>
+                <td>{{form.wednesday5}}</td>
+                <td>{{form.thursday5}}</td>
+                <td>{{form.friday5}}</td>
+                <td>{{form.saturday5}}</td>
+            </tr>
+            <tr>
+                <td>6 урок</td>
+                <td>{{form.monday6}}</td>
+                <td>{{form.tuesday6}}</td>
+                <td>{{form.wednesday6}}</td>
+                <td>{{form.thursday6}}</td>
+                <td>{{form.friday6}}</td>
+                <td>{{form.saturday6}}</td>
+            </tr>
+        </table>
+
+        {%if a%}
+        <p>{{form.submit(value="Изменить")}}<p>
+        {%else%}
+        <p>{{form.submit}}<p>
+        {%endif%}
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

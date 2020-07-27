@@ -1,0 +1,16 @@
+.checked {
+    color: orange;
+}
+
+span.star {
+    font-size:40px;
+    cursor:pointer;
+}
+
+div.review-block {
+    margin: 15px 15px 0px 15px
+}
+
+p.assesment-title {
+    padding-top: 15px;
+}

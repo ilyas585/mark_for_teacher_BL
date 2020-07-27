@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title%} Изменить название группы {%endblock%}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
+<div class="page-wrapper">
+    <a name="anchor25"></a>
+    <h2>Таблица групп
+        <a  href="#anchor26">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a>
+
+    </h2>
+    <table class="list-from-db table table-striped table-sm" cellpadding="5">
+        <thead class="thead">
+        <tr class="table-secondary">
+            <th>ID</th>
+            <th>Класс</th>
+            <th>Группа</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for row in rows%}
+            <tr>
+            {% set row = row.split(',') %}
+            {%for word in row%}
+                <td>{{word}}</td>
+            {%endfor%}
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    <style>
+        input, label, select {
+        display:block;
+        }
+    </style>
+
+    <form action="" method="post" novalidate>
+        <a name="anchor26"></a>
+        {{ form.hidden_tag() }}
+        <h3 style="margin-bottom:20px">Изменить название группы
+            <a  href="#anchor25">
+                <span data-toggle="tooltip"
+                      data-placement="top" title="Прокрутить в начало таблицы">
+                    <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+                </span>
+            </a>
+        </h3>
+        <div style="float:left;margin-right:0px;">
+            <label for="group_list" style="font-size: 25px">Группа</label>
+            {{form.group_list(class="selecttt")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="name" style="font-size: 25px">Новое имя группы</label>
+            {{form.name(size=16, placeholder="1Б основная")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit" style="font-size: 25px">&nbsp;</label>
+            {{form.submit(value="Изменить")}}
+        </div>
+    </form>
+</div>
+    {% endblock %}
+    {% block footer %}<p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p>{%endblock%}

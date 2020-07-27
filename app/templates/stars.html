@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title%} Поставить оценку {%endblock%}
+{% block content %}
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="{{ url_for('static', filename='star.js') }}"
+            type="text/javascript"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='stars.css') }}">
+
+  <script src="{{ url_for('static', filename='star.js') }}"
+        type="text/javascript"></script>
+
+</head>
+<body>
+<div class="page-wrapper">
+{%if check%}
+    <div class="review-block">
+        <h1>Ваш урок: {{lesson}}</h1>
+        <h1>Ваш учитель: {{teacher}}</h1>
+    <p class="assesment-title">Интересность урока</p>
+    <span class="star fa fa-star checked" onmouseover="" onclick="starmark(this)" id="1one" ></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="2one"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="3one"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="4one"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="5one"></span>
+    <br>
+    <p class="assesment-title">Понятность урока</p>
+    <span class="star fa fa-star checked" onmouseover="" onclick="starmark(this)" id="1two"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="2two"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="3two"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="4two"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="5two"></span>
+    <br>
+    <p class="assesment-title">Компетентность учителя </p>
+    <span class="star fa fa-star checked" onmouseover="" onclick="starmark(this)" id="1thr"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="2thr"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="3thr"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="4thr"></span>
+    <span class="star fa fa-star" onmouseover="" onclick="starmark(this)" id="5thr"></span>
+
+    <textarea  style="margin-top:5px;" class="form-control" rows="3" id="comment" placeholder="Введите ваш отзыв"></textarea>
+    <form action="" method="post">
+        <a href="/">{{form.submit(onclick="result()", style="margin-top:10px;margin-left:5px;margin-left:%;", class="btn btn-lg btn-success", value="Отправить")}}</a>
+        <p style="transform:scale(0);">{{form.name(id="ggg")}}</p>
+        <p style="transform:scale(0);">{{form.surname(id="gg")}}</p>
+        <p style="transform:scale(0);">{{form.patronymic(id="g")}}</p>
+    </form>
+    </div>
+    </body>
+    </html>
+{%else%}
+<h1>Ты пока не можешь поставить оценку</h1>
+</div>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>
+{%endif%}
+{% endblock %}
+{% block footer %}
+{%endblock%}

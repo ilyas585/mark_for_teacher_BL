@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+{% block title%} Эл. почта {%endblock%}
+{% block content %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            <br>
+            <br>
+            {{ form.email(size=64, placeholder="Введите ваш email") }} {{ form.submit() }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+            <p>{{form.email2(placeholder="Ваш email")}} {{ form.submit(value="Поменять пароль") }}</p>
+        </p>
+    </form>
+<script>document.getElementById("email").classList.add('active');</script>
+{% endblock %}
+{% block footer %}
+<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+

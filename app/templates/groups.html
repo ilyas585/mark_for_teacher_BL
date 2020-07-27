@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title%} Группы {%endblock%}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
+<div class="page-wrapper">
+    <a name="anchor14"></a>
+    <h2>Таблица групп
+
+        <a  href="#anchor6">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a></h2>
+    <table class="list-from-db table table-striped table-sm" cellpadding="5">
+        <thead class="thead">
+        <tr class="table-secondary">
+            <th>ID</th>
+            <th>Класс</th>
+            <th>Группа</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for row in rows%}
+            <tr>
+            {% set row = row.split(',') %}
+            {%for word in row%}
+                <td>{{word}}</td>
+            {%endfor%}
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+
+    <style>
+        input, label, select {
+        display:block;
+        }
+    </style>
+
+    <form action="" method="post" novalidate>
+        <a name="anchor6"></a>
+        {{ form.hidden_tag() }}
+        <h3 style="margin-bottom:20px">Добавить группу
+            <a  href="#anchor14">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в начало таблицы">
+                <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+            </a>
+        </h3>
+        <div style="float:left;margin-right:0px;">
+            <label for="class_list" style="font-size: 25px">Класс</label>
+            {{form.class_list(class="selecttt")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="name" style="font-size: 25px">Имя группы</label>
+            {{form.name(size=16, placeholder="5В основная")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit" style="font-size: 25px">&nbsp;</label>
+            {{ form.submit(value="Добавить")}}
+        </div>
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h3 style="margin-bottom:20px">Удалить группу</h3>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="class_list2" style="font-size: 25px">Класс</label>
+            {{form.class_list2(class="selecttt")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit2" style="font-size: 25px">&nbsp;</label>
+            {{form.submit2(value="Далее")}}
+        </div>
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h3 style="margin-bottom:20px">Изменить название группы</h3>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="student_list" style="font-size: 25px">Класс</label>
+            {{form.student_list(class="selecttt")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit3" style="font-size: 25px">&nbsp;</label>
+            {{form.submit3(value="Далее")}}
+        </div>
+    </form>
+</div>
+    {% endblock %}
+    {% block footer %}<p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p>{%endblock%}

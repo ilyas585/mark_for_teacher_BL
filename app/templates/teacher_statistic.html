@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title%} Статистика {%endblock%}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Chart.css') }}">
+ <script src="{{ url_for('static', filename='moment.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Chart.min.js') }}"
+            type="text/javascript"></script>
+<h1>Средний балл {{name}} {{patr}} {{surname}}:</h1>
+<h3>Интересность: {{r1}}</h3>
+<h3>Понятность: {{r2}}</h3>
+<h3>Поведение учителя: {{r3}}</h3>
+<canvas id="myChart" width="auto" height="90%"></canvas>
+<div id="data" style="display:none">
+        {{ stat_data }}
+    </div>
+    <script src="{{ url_for('static', filename='123.js') }}"
+            type="text/javascript"></script>
+
+{% endblock %}

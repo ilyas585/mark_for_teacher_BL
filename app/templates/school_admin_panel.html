@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block title%} Админ панель {%endblock%}
+{% block content %}
+{%if a%}
+<header>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <a href="" class="logo">Панель АДМИНА</a>
+        <nav>
+        <ul class="topmenu">
+            <li><a href="calls" class="submenu-link">Звонки</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+        </ul>
+    </nav>
+        <nav>
+        <ul class="topmenu">
+       <!--          <li><a href="add_student" class="submenu-link">Ученики</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          <li><a href="add_teacher" class="submenu-link">Учителя</a>
+            <ul class="submenu">
+            </ul>
+          </li>-->
+    <nav>
+        <ul class="topmenu">
+          <li><a href="add_class" class="submenu-link">Классы</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+        <nav>
+        <ul class="topmenu">
+          <li><a href="add_student" class="submenu-link">Ученики</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+                <nav>
+        <ul class="topmenu">
+          <li><a href="add_teacher" class="submenu-link">Учителя</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <nav>
+        <ul class="topmenu">
+          <li><a href="" class="submenu-link">Группы</a>
+            <ul class="submenu">
+              <li><a href="add_group">Добавить</a></li>
+              <li><a href="add_teachergroup">Добавить учителя к группе</a></li>
+              <li><a href="add_studentgroup">Добавить ученика к группе</a></li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="topmenu">
+            <li><a href="/add_schedule_class2" class="submenu-link">Расписание</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+        </ul>
+    </nav>
+  </header>
+<script>document.getElementById("gl").classList.add('active');</script>
+<body>
+</body>
+{%else%}
+<script>
+    document.getElementById("gl").classList.add('active');
+    document.getElementById("rating").style.display = "none";
+</script>
+
+<header>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <a href="" class="logo">Панель супер АДМИНА</a>
+    <nav>
+        <ul class="topmenu">
+          <li><a href="" class="submenu-link">Школы</a>
+            <ul class="submenu">
+              <li><a href="add_school">Добавить</a>
+                  <a href="add_admin">Добавить Админа</a></li>
+            </ul>
+          </li>
+            </ul>
+            </nav>
+       <!--          <li><a href="add_student" class="submenu-link">Ученики</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          <li><a href="add_teacher" class="submenu-link">Учителя</a>
+            <ul class="submenu">
+            </ul>
+          </li>-->
+    <nav>
+        <ul class="topmenu">
+          <li><a href="add_class" class="submenu-link">Классы</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+        <nav>
+        <ul class="topmenu">
+          <li><a href="add_student" class="submenu-link">Ученики</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+                <nav>
+        <ul class="topmenu">
+          <li><a href="add_teacher" class="submenu-link">Учителя</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+          </ul>
+      </nav>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <nav>
+        <ul class="topmenu">
+          <li><a href="" class="submenu-link">Группы</a>
+            <ul class="submenu">
+              <li><a href="add_group">Добавить</a></li>
+              <li><a href="add_teachergroup">Добавить учителя к группе</a></li>
+              <li><a href="add_studentgroup">Добавить ученика к группе</a></li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="topmenu">
+            <li><a href="/add_schedule_class2" class="submenu-link">Расписание</a>
+            <ul class="submenu">
+            </ul>
+          </li>
+        </ul>
+    </nav>
+{%endif%}
+{% endblock %}
+{% block footer %}
+<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+
+

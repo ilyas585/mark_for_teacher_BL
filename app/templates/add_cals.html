@@ -1,0 +1,356 @@
+{%extends "base.html"%}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% block title%} Расписание {%endblock%}
+{% block content %}
+
+<script src="{{ url_for('static', filename='calls_timetable.js') }}" type="text/javascript"></script>
+
+<div class="page-wrapper">
+    <a name="anchor17"></a>
+    <h2>Расписание звонков(Если только одна смена заполните поля одинаковыми значениями)
+        <a  href="#anchor9">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a>
+    </h2>
+
+    <form action="" method="post">
+        <table class="list-from-db table table-striped table-sm" style="width: 60%; margin: 0 auto">
+             <tr>
+                <th colspan="6">
+                    <input type="checkbox" name="option2" value="a2" onchange="toggleCheckbox(this)">
+                        Во все дни расписание одинаковое
+                </th>
+            </tr>
+            <tr>
+                <th>День недели</th>
+                <th>№ Урока</th>
+                <th>1 смена начало урока</th>
+                <th>1 смена конец урока</th>
+                <th>2 смена начало урока</th>
+                <th>2 смена конец урока</th>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>1 урок</td>
+                <td>{{form.pnonest1(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn1(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost1(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn1(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>2 урок</td>
+                <td>{{form.pnonest2(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn2(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost2(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn2(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>3 урок</td>
+                <td>{{form.pnonest3(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn3(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost3(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn3(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>4 урок</td>
+                <td>{{form.pnonest4(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn4(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost4(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn4(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>5 урок</td>
+                <td>{{form.pnonest5(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn5(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost5(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn5(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>6 урок</td>
+                <td>{{form.pnonest6(placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.pnonefn6(placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pntwost6(placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pntwofn6(placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>1 урок</td>
+                <td>{{form.vtonest1(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn1(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost1(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn1(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>2 урок</td>
+                <td>{{form.vtonest2(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn2(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost2(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn2(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>3 урок</td>
+                <td>{{form.vtonest3(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn3(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost3(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn3(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>4 урок</td>
+                <td>{{form.vtonest4(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn4(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost4(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn4(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>5 урок</td>
+                <td>{{form.vtonest5(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn5(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost5(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn5(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Вторник</td>
+                <td>6 урок</td>
+                <td>{{form.vtonest6(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.vtonefn6(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.vttwost6(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.vttwofn6(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>1 урок</td>
+                <td>{{form.sronest1(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn1(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost1(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn1(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>2 урок</td>
+                <td>{{form.sronest2(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn2(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost2(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn2(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>3 урок</td>
+                <td>{{form.sronest3(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn3(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost3(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn3(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>4 урок</td>
+                <td>{{form.sronest4(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn4(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost4(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn4(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>5 урок</td>
+                <td>{{form.sronest5(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn5(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost5(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn5(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Среда</td>
+                <td>6 урок</td>
+                <td>{{form.sronest6(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sronefn6(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.srtwost6(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.srtwofn6(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>1 урок</td>
+                <td>{{form.ctonest1(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn1(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost1(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn1(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>2 урок</td>
+                <td>{{form.ctonest2(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn2(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost2(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn2(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>3 урок</td>
+                <td>{{form.ctonest3(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn3(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost3(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn3(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>4 урок</td>
+                <td>{{form.ctonest4(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn4(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost4(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn4(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>5 урок</td>
+                <td>{{form.ctonest5(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn5(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost5(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn5(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Четверг</td>
+                <td>6 урок</td>
+                <td>{{form.ctonest6(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ctonefn6(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.cttwost6(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.cttwofn6(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>1 урок</td>
+                <td>{{form.ptonest1(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn1(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost1(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn1(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>2 урок</td>
+                <td>{{form.ptonest2(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn2(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost2(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn2(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>3 урок</td>
+                <td>{{form.ptonest3(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn3(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost3(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn3(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>4 урок</td>
+                <td>{{form.ptonest4(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn4(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost4(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn4(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>5 урок</td>
+                <td>{{form.ptonest5(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn5(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost5(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn5(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Пятница</td>
+                <td>6 урок</td>
+                <td>{{form.ptonest6(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.ptonefn6(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.pttwost6(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.pttwofn6(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>1 урок</td>
+                <td>{{form.sbonest1(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn1(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost1(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn1(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>2 урок</td>
+                <td>{{form.sbonest2(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn2(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost2(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn2(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>3 урок</td>
+                <td>{{form.sbonest3(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn3(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost3(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn3(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>4 урок</td>
+                <td>{{form.sbonest4(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn4(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost4(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn4(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>5 урок</td>
+                <td>{{form.sbonest5(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn5(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost5(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn5(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+            <tr class="hiddenable-timetable-row">
+                <td>Суббота</td>
+                <td>6 урок</td>
+                <td>{{form.sbonest6(class="hiddenable-form", placeholder="8:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbonefn6(class="hiddenable-form", placeholder="9:10", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwost6(class="hiddenable-form", placeholder="13:30", style="width:50% !important;")}}</td>
+                <td>{{form.sbtwofn6(class="hiddenable-form", placeholder="14:10", style="width:50% !important;")}}</td>
+            </tr>
+        </table>
+        {{form.hidden_form(class="hidden-input", value="Explicit")}}
+        <a name="anchor9"></a>
+        {{form.submit(class="list-from-db table table-striped table-sm", value="Добавить расписание звонков")}}
+    </form>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+</html>

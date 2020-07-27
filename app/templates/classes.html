@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title%} Классы {%endblock%}
+<link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
+{% block content %}
+<div class="page-wrapper">
+    <a name="anchor14"></a>
+    <h2>Таблица классов
+
+        <a  href="#anchor5">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a></h2>
+    <table class="list-from-db table table-striped table-sm" style="width:45%;" cellpadding="5">
+                <tr class="table-secondary">
+                    <th>ID</th>
+                    <th>Школа</th>
+                    <th>Класс</th>
+                </tr>
+                {%for row in rows%}
+                    <tr>
+                    {% set row = row.split(',') %}
+                    {%for word in row%}
+                        <td>{{word}}</td>
+                    {%endfor%}
+                    </tr>
+                {%endfor%}
+    </table>
+
+    <style>
+        input, label, select {
+        display:block;
+        }
+    </style>
+    <form action="" method="post" novalidate>
+        <a name="anchor5"></a>
+        {{ form.hidden_tag() }}
+        <h4>Добавить класс
+            <a  href="#anchor14">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в начало таблицы">
+                <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+            </a>
+        </h4>
+        {% if b%}
+        <div style="float:left;margin-right:0px;">
+            <label for="school_list" style="font-size: 25px">Школа</label>
+            <p>{{form.school_list(class="selecttt")}}</p>
+        </div>
+        {%endif%}
+
+        <div style="float:left;margin-right:0px;">
+            <label for="name" style="font-size: 25px">Название класса</label>
+            <p>{{form.name(size=16, placeholder="8а")}}</p>
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit" style="font-size: 25px">&#8291;</label>
+            <p>{{ form.submit(value="Добавить") }}</p>
+        </div>
+
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h4>Удалить класс</h4>
+        <div style="float:left;margin-right:0px;">
+            <label for="class_list" style="font-size: 25px">Класс</label>
+            <p>{{form.class_list (class="selecttt")}}</p>
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit2" style="font-size: 25px">&#8291;</label>
+            <p>{{ form.submit2(value="Удалить") }}</p>
+        </div>
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h4>Изменить название класса</h4>
+        <div style="float:left;margin-right:0px;">
+            <label for="student_list" style="font-size: 25px">Класс</label>
+            <p>{{form.student_list (class="selecttt")}}</p>
+        </div>
+        <div style="float:left;margin-right:0px;">
+            <label for="surname" style="font-size: 25px">Новое имя класса</label>
+            <p>{{form.surname(size=16, placeholder="9б")}}</p>
+        </div>
+        <div style="float:left;margin-right:0px;">
+            <label for="submit3" style="font-size: 25px">&#8291;</label>
+            <p>{{ form.submit3(value="Изменить") }}</p>
+        </div>
+
+    </form>
+
+{% endblock %}
+{% block footer %}<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+</div>

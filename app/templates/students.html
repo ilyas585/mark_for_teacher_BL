@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+{% block title%} Ученики {%endblock%}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+.lll {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: orange;
+  box-shadow: 0 8px 15px rgba(0,0,0,.1);
+  transition: .3s;
+}
+.lll:hover {
+  background: #6e9eff;
+  box-shadow: 0 15px 20px rgba(110, 158, 255);
+  color: white;
+  transform: translateY(-7px);
+}
+</style>
+<div class="page-wrapper">
+    <a name="anchor12"></a>
+        <h2>Таблица учеников
+
+        <a  href="#anchor1">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a>
+    </h2>
+
+    <table class="list-from-db table table-striped table-sm" cellpadding="5">
+        <thead class="thead">
+        <tr class="table-secondary">
+            <th>ID</th>
+            <th>Школа</th>
+            <th>Класс</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Пол</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for row in rows%}
+            <tr>
+            {% set row = row.split(',') %}
+            {%for word in row%}
+                <td>{{word}}</td>
+            {%endfor%}
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+
+    <style>
+        input, label, select {
+        display:block;
+        }
+    </style>
+
+    <form action="" method="post" novalidate>
+        <a name="anchor1"></a>
+        {{ form.hidden_tag() }}
+
+        <h3 style="margin-bottom:20px">Добавить ученика
+            <a  href="#anchor12">
+                <span data-toggle="tooltip"
+                      data-placement="top" title="Прокрутить в начало таблицы">
+                    <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+                </span>
+            </a>
+        </h3>
+
+        {%if not is_school_admin%}
+        <div style="float:left;margin-right:0px;">
+            <label for="school_list" style="font-size: 25px">Школа</label>
+            {{form.school_list(class="selecttt")}}
+        </div>
+        {%endif%}
+
+        <div style="float:left;">
+            <label for="class_list" style="font-size: 25px">Класс</label>
+            {{form.class_list(class="selecttt")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="name" style="font-size: 25px">Имя</label>
+            {{form.name(size=10, placeholder="Иван")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="surname" style="font-size: 25px">Фамилия</label>
+            {{form.surname(size=10, placeholder="Иванов")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="patronymic" style="font-size: 25px">Отчество</label>
+            {{form.patronymic(size=10, placeholder="Иванович")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="sex" style="font-size: 25px">Пол</label>
+            {{form.sex(class="selecttt sex")}}
+        </div>
+
+        <div style="float:left;margin-right:0px;">
+            <label for="submit" style="font-size: 25px">&nbsp;</label>
+            {{ form.submit(value="Добавить")}}
+        </div>
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h3 style="margin-bottom:20px">Изменить данные ученика</h3>
+
+        <div style="float:left;">
+            <label for="student_list2" style="font-size: 25px">Ученик</label>
+            {{form.student_list2(class="selecttt")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="class_list2" style="font-size: 25px">Класс</label>
+            {{form.class_list2(class="selecttt")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="name2" style="font-size: 25px">Имя</label>
+             {{form.name2(size=16, placeholder="Пётр")}}
+        </div>
+
+         <div style="float:left;">
+            <label for="surname2" style="font-size: 25px">Фамилия</label>
+            {{form.surname2(size=16, placeholder="Петров")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="patronymic2" style="font-size: 25px">Отчество</label>
+            {{form.patronymic2(size=16, placeholder="Петрович")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="sex2" style="font-size: 25px">Пол</label>
+            {{form.sex2(class="selecttt sex")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="password2" style="font-size: 25px">Пароль</label>
+            {{form.password2(size=16, placeholder="12345")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="submit3" style="font-size: 25px">&nbsp;</label>
+            {{ form.submit3(value="Изменить") }}
+        </div>
+
+         <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h3 style="margin-bottom:20px">Удалить ученика(ов)</h3>
+
+        <div style="float:left;">
+            <label for="a1" style="font-size: 25px">Ученик</label>
+            {{form.a1(class="mul-select")}}
+        </div>
+
+        <div style="float:left;">
+            <label for="submit2" style="font-size: 25px">&nbsp;</label>
+            {{ form.submit2(value="Удалить") }}
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $(".mul-select").select2({
+
+                    tokenSeparators: ['/',',',';'," "]
+                });
+            })
+        </script>
+        {%if is_school_admin%}
+
+        <div style="clear: left;"></div>
+        <hr style="margin-bottom:20px; margin-top:20px">
+        <h3 style="margin-bottom:20px">Добавить через xls</h3>
+        {{ form.submit4(value="Добавить", href="/add_student_xls") }}
+        {%endif%}
+    </form>
+</div>
+    {% endblock %}
+    {% block footer %}<p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p><p>
+    &#8291;</p>{%endblock%}
+

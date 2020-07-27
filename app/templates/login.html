@@ -1,0 +1,99 @@
+{% block head %}
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" href="{{
+      url_for('static',
+      filename='bootstrap.css') }}"
+    >
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='popper.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"
+            type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <title>{% block title %}Авторизация{% endblock %} УСОУ</title>
+    {% endblock %}
+{% block content %}
+
+
+<form action="" method="post" novalidate >
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="static/favicon.ico" id="icon" alt="User Icon" />
+    </div>
+    <!-- Login Form -->
+    <form>
+      <h3 class="jjj">УСОУ - Умная Система Оценки Урока.<br>
+        Проект нацелен на улучшение качества уроков в учебных заведениях <a href="#foot">подробнее</a>
+        <br>
+        <span class="little-blue">Все оценки анонимны.</span>
+      </h3>
+
+        <p>{{ form.username(size=32, type="text", id="login" ,class="fadeIn second" , placeholder="Логин/email")}}</p>
+      <p>{{ form.password(size=32, type="password", id="password", class="fadeIn third", placeholder="Пароль") }}<p>
+        <p>{{ form.submit(type="submit", class="fadeIn fourth", value="Войти") }}</p>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="/change_pass">Забыли пароль?</a>
+    </div>
+
+  </div>
+</div>
+</form>
+{% endblock %}
+{% block footer %}<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+<footer id="footer" class="footer-1">
+<div class="main-footer widgets-dark typo-light">
+<div class="container">
+<div class="row">
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget subscribe no-box">
+<h5 class="widget-title">У.С.О.У.<span></span></h5>
+<p><a name="foot">Умная Система Оценки Урока</a> </p>
+</div>
+</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget subscribe no-box">
+<h5 class="widget-title">О проекте<span></span></h5>
+<p>УСОУ даёт ученику с учителем обратную связь. Ученик может поставить оценку учителю за урок, тем самым помогая учителю улучшить качество урока. Все оценки анонимны </p>
+</div>
+</div>
+
+
+  <div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget subscribe no-box">
+<h5 class="widget-title">Связаться с нами<span></span></h5>
+  <p>onextopplay@gmail.com </p>
+</div>
+</div>
+  {%endblock%}
+

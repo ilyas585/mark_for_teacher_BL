@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title%} Смена пароля {%endblock%}
+{% block content %}
+
+<style>
+    .nav-item {
+        display: none;
+    }
+
+    .navbar-nav {
+        display: none;
+    }
+
+    .form-inline {
+        display: none;
+    }
+
+</style>
+
+    <div class="page-wrapper">
+        <h2>Восстановление пароля</h2>
+        <form action="" method="post" validate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{form.email(placeholder="Ваш email", type="email")}}
+                {{ form.submit(value="Далее") }}
+            </p>
+        </form>
+    </div>
+<script>document.getElementById("pass").classList.add('active');</script>
+{% endblock %}
+{% block footer %}
+<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+

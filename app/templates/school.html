@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title%} Школы {%endblock%}
+{% block content %}
+
+<div class="page-wrapper">
+    <a name="anchor10"></a>
+    <h2>Таблица школ
+
+        <a  href="#anchor2">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a></h2>
+    <table class="list-from-db table table-striped table-sm" style="width: 45%;" cellpadding="5">
+        <tr class="table-secondary">
+            <th>ID</th>
+            <th>Школа</th>
+            <th>Город</th>
+        </tr>
+        {%for row in rows%}
+            <tr>
+            <td>{{row[0]}}</td>
+            {% set row1 = row.split(' ') %}
+            {% set school_name = "".join(row1[1:-1]) %}
+            <td>{{school_name}}</td>
+            <td>{{row1[-1]}}</td>
+            </tr>
+        {%endfor%}
+    </table>
+
+    <form action="" method="post" novalidate>
+        <a name="anchor2"></a>
+        <h3 style="margin-bottom:20px">Добавить школу
+
+            <a  href="#anchor10">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в начало таблицы">
+                <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a></h3>
+        <div style="float:left;margin-right:0px;">
+            <label for="name" style="font-size: 20px">Школа</label>
+            <p>{{form.name(size=16, placeholder="Лицей №1")}}</p>
+        </div>
+        <div style="float:left;margin-right:0px;">
+            <label for="surname" style="font-size: 20px">Город</label>
+            <p>{{form.surname(size=16, placeholder="Москва")}}</p>
+        </div>
+       <div style="float:left;margin-right:0px;">
+           <label for="submit2" style="font-size: 20px">&#8291;</label>
+
+           <p>{{ form.submit2() }}</p>
+           </div>
+    <div style="clear: left;"></div>
+    <hr style="margin-bottom:20px; margin-top:20px">
+
+        {{ form.hidden_tag() }}
+
+    <h3 style="margin-bottom:20px">Удалить школу</h3>
+
+       <div style="float:left;margin-right:0px;">
+           <label for="submit" style="font-size: 20px">Школа</label>
+
+           <p>{{form.school_list(class="selecttt")}}</p>
+           </div>
+           <div style="float:left;margin-right:0px;">
+           <label for="submit" style="font-size: 20px">&#8291;</label>
+
+           <p>{{  form.submit(value="Удалить", class="aa") }}</p>
+           </div>
+    </form>
+
+{% endblock %}
+{% block footer %}<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+</div>

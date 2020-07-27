@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title%} Добавить к группе {%endblock%}
+<link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
+{% block content %}
+<div class="page-wrapper">
+     <a name="anchor16"></a>
+    <h2>Таблица групп, в которых состоят учителя
+        <a  href="#anchor7">
+            <span data-toggle="tooltip"
+                  data-placement="top" title="Прокрутить в конец таблицы">
+                <img src="static/chevron-bottom-8x.png" style="width: 32px; height: 32px;"></img>
+            </span>
+        </a></h2>
+    <table class="list-from-db table table-striped table-sm" cellpadding="2" style="font-size : 20px; font-family : Tahoma; width: 45%;">
+                <tr class="table-secondary">
+                    <th>Учитель</th>
+                    <th>Предмет</th>
+                    <th>Группа</th>
+                </tr>
+                 {%for row in rows%}
+                    <tr>
+                    {% set row = row[1] %}
+                    {% set row = row.split(',') %}
+                    {%for word in row%}
+                        <td>{{word}}</td>
+                    {%endfor%}
+                    </tr>
+                {%endfor%}
+            </table>
+    <div class="school2">
+        <form action="" method="post" novalidate>
+            <a name="anchor7"></a>
+            {{ form.hidden_tag() }}
+            <h4>Добавить учителя(ей) в группу
+                <a  href="#anchor16">
+                <span data-toggle="tooltip"
+                      data-placement="top" title="Прокрутить в начало таблицы">
+                    <img src="static/chevron-top-8x.png" style="width: 32px; height: 32px;"></img>
+                </span>
+                </a>
+            </h4>
+            <label style="font-size: 25px">Класс</label>
+            <p>{{form.class_list(class="selecttt")}} {{ form.submit2(value="Далее") }}</p>
+            <p></p>
+            <hr style="margin-bottom:20px; margin-top:20px">
+            <h4>Удалить учителя из группы</h4>
+            <label style="font-size: 25px">Учитель, группа</label>
+            <p>{{form.group_list(class="selecttt")}} {{ form.submit(value="Удалить") }}</p>
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}<p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p><p>
+&#8291;</p>{%endblock%}
+</div>

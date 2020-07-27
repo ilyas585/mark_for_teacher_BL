@@ -1,0 +1,53 @@
+body{
+    background-image: url('/static/98_full.jpg');
+    background-size: cover;
+    height:100%;
+    position:fixed;}
+    
+    .a{
+        background-color:rgba(0,0,0,.3);
+        height:100%;
+        position:fixed;
+        width:100%;
+        top:0;
+        left:0;
+    }
+    
+    .menu
+     {
+        margin-left: 225px;
+        margin-top: -25px;
+        color: white;
+    }
+    
+    .adm{
+        margin-left: 750px;
+        margin-top: -63px;
+        color: white;
+    }
+.zn{
+    background-image: url('/static/online-education-study_2-512.png');
+    height: 50px;
+    background-size: contain;
+    width: 50px;
+    margin-left: 210px;
+    margin-top: -5px;
+}
+
+li{
+    list-style-type: none;
+}
+
+
+
+.sis {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    font-size: 50px;
+    text-align: center;
+    margin-left: -95px; 
+    margin-top: 310px;
+}
