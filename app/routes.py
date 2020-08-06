@@ -99,7 +99,7 @@ def change_pass():
         token = generate_confirmation_token(form.email.data)
         confirm_url = url_for('confirm_pass', token=token, _external=True)
         html = render_template('change_pass.html', confirm_url=confirm_url)
-        subject = "Сылка для изменения пароля"
+        subject = "Ссылка для изменения пароля"
         send_email(form.email.data, subject, html)
         return "На ваш email отправлено письмо"
     return render_template('email_pass.html', title='Email', form=form)
@@ -318,7 +318,18 @@ def add_teacher():
             ("Труды", "Труды"), ("Математика", "Математика"), ("Музыка", "Музыка"), ("ИЗО", "ИЗО"), ("Русский язык и литература", "Русский язык и литература"),
             ("Физкультура", "Физкультура"), ("Родной язык", "Родной язык"), ("Английский язык", "Английский язык"),
             ("История", "История"), ("ОБЖ", "ОБЖ"), ("География", "География"), ("Биология", "Биология"), ("Информатика", "Информатика"),
-            ("Обществознание", "Обществознание"), ("Физика", "Физика"), ("Химия", "Химия")
+            ("Обществознание", "Обществознание"), ("Физика", "Физика"), ("Химия", "Химия"),
+            ("Общественные науки (социология, экономика, политология)", "Общественные науки (социология, экономика, политология)"),
+            ("Естественные науки (физика, химия, биология)", "Естественные науки (физика, химия, биология)"),
+            ("Программирование", "Программирование"), ("Машинное обучение", "Машинное обучение"), ("Веб-программирование", "Веб-программирование"),
+            ("Природоведение", "Природоведение"), ("Изобразительное искусство (Рисование)", "Изобразительное искусство (Рисование)"),
+            ("Основы религиозных культур и светской этики", "Основы религиозных культур и светской этики"),
+            ("Краеведение", "Краеведение"), ("Черчение", "Черчение"), ("Философия", "Философия"),
+            ("Астрономия", "Астрономия"), ("Геометрия", "Геометрия"), ("Чистописание", "Чистописание"),
+            ("Граждановедение", "Граждановедение"), ("Алгебра", "Алгебра"), ("Технология", "Технология"),
+            ("Основы экономики", "Основы экономики"), ("Правоведение", "Правоведение"),  ("Экология", "Экология"),
+
+
         ]
         form.group_list.choices = a
         form.group_list2.choices = a
@@ -346,7 +357,19 @@ def add_teacher():
             ("Труды", "Труды"), ("Математика", "Математика"), ("Музыка", "Музыка"), ("ИЗО", "ИЗО"), ("Русский язык и литература", "Русский язык и литература"),
             ("Физкультура", "Физкультура"), ("Родной язык", "Родной язык"), ("Английский язык", "Английский язык"),
             ("История", "История"), ("ОБЖ", "ОБЖ"), ("География", "География"), ("Биология", "Биология"), ("Информатика", "Информатика"),
-            ("Обществознание", "Обществознание"), ("Физика", "Физика"), ("Химия", "Химия")
+            ("Обществознание", "Обществознание"), ("Физика", "Физика"), ("Химия", "Химия"),
+            ("Общественные науки (социология, экономика, политология)",
+             "Общественные науки (социология, экономика, политология)"),
+            ("Естественные науки (физика, химия, биология)", "Естественные науки (физика, химия, биология)"),
+            ("Программирование", "Программирование"), ("Машинное обучение", "Машинное обучение"),
+            ("Веб-программирование", "Веб-программирование"),
+            ("Природоведение", "Природоведение"),
+            ("Изобразительное искусство (Рисование)", "Изобразительное искусство (Рисование)"),
+            ("Основы религиозных культур и светской этики", "Основы религиозных культур и светской этики"),
+            ("Краеведение", "Краеведение"), ("Черчение", "Черчение"), ("Философия", "Философия"),
+            ("Астрономия", "Астрономия"), ("Геометрия", "Геометрия"), ("Чистописание", "Чистописание"),
+            ("Граждановедение", "Граждановедение"), ("Алгебра", "Алгебра"), ("Технология", "Технология"),
+            ("Основы экономики", "Основы экономики"), ("Правоведение", "Правоведение"), ("Экология", "Экология"),
         ]
         form.group_list.choices = a
         form.group_list2.choices = a
@@ -670,6 +693,13 @@ def up_schedule2():
         form.saturday5.choices = dbFunc.subject_list2(class_id, "saturday", 5)
         form.saturday6.choices = dbFunc.subject_list2(class_id, "saturday", 6)
 
+        form.sunday1.choices = dbFunc.subject_list2(class_id, "sunday", 1)
+        form.sunday2.choices = dbFunc.subject_list2(class_id, "sunday", 2)
+        form.sunday3.choices = dbFunc.subject_list2(class_id, "sunday", 3)
+        form.sunday4.choices = dbFunc.subject_list2(class_id, "sunday", 4)
+        form.sunday5.choices = dbFunc.subject_list2(class_id, "sunday", 5)
+        form.sunday6.choices = dbFunc.subject_list2(class_id, "sunday", 6)
+
         schedule_id = dbFunc.get_schedule_id(class_id)
         if form.submit.data:
             dbFunc.up_schedule_days(schedule_id, "monday", form.monday1.data, 1)
@@ -713,6 +743,14 @@ def up_schedule2():
             dbFunc.up_schedule_days(schedule_id, "saturday", form.saturday4.data, 4)
             dbFunc.up_schedule_days(schedule_id, "saturday", form.saturday5.data, 5)
             dbFunc.up_schedule_days(schedule_id, "saturday", form.saturday6.data, 6)
+
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday1.data, 1)
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday2.data, 2)
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday3.data, 3)
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday4.data, 4)
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday5.data, 5)
+            dbFunc.up_schedule_days(schedule_id, "sunday", form.sunday6.data, 6)
+
             return redirect(url_for("index"))
         return render_template("schedule2.html", form=form, a=True)
     else:
@@ -742,12 +780,12 @@ def tst():
                 flash('Congratulations, you are now a registered user!')
                 return "<h1>На ваш email было высланно письмо <a href='/tst'> Перейти в личный кабинет</a></h1>"
             else:
-                return "<h1>Данный email уже зарегистриван введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
+                return "<h1>Данный email уже зарегистрирован введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
         if form.submit2.data:
             token = generate_confirmation_token(form.email2.data)
             confirm_url = url_for('confirm_pass', token=token, _external=True)
             html = render_template('change_pass.html', confirm_url=confirm_url)
-            subject = "Сылка для изменения пароля"
+            subject = "Ссылка для изменения пароля"
             send_email(form.email2.data, subject, html)
             return "На ваш email отправлено письмо"
         return render_template("profile.html", form=form, name="Супер админ", admin=True, a=a, email=b)
@@ -764,12 +802,12 @@ def tst():
                 flash('Congratulations, you are now a registered user!')
                 return "<h1>На ваш email было высланно письмо <a href='/tst'> Перейти в личный кабинет</a></h1>"
             else:
-                return "<h1>Данный email уже зарегистриван введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
+                return "<h1>Данный email уже зарегистрирован введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
         if form.submit2.data:
             token = generate_confirmation_token(current_user.email)
             confirm_url = url_for('confirm_pass', token=token, _external=True)
             html = render_template('change_pass.html', confirm_url=confirm_url)
-            subject = "Сылка для изменения пароля"
+            subject = "Ссылка для изменения пароля"
             send_email(current_user.email, subject, html)
             return "На ваш email отправлено письмо"
         return render_template("profile.html", form=form, name="Админ", admin=True, a=a, email=b)
@@ -786,12 +824,12 @@ def tst():
                 flash('Congratulations, you are now a registered user!')
                 return "<h1>На ваш email было высланно письмо <a href='/tst'> Перейти в личный кабинет</a></h1>"
             else:
-                return "<h1>Данный email уже зарегистриван введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
+                return "<h1>Данный email уже зарегистрирован введите другой email <a href='/tst'> Перейти в личный кабинет</a></h1>"
         if form.submit2.data:
             token = generate_confirmation_token(form.email2.data)
             confirm_url = url_for('confirm_pass', token=token, _external=True)
             html = render_template('change_pass.html', confirm_url=confirm_url)
-            subject = "Сылка для изменения пароля"
+            subject = "Ссылка для изменения пароля"
             send_email(current_user.email, subject, html)
             return "На ваш email отправлено письмо"
         return render_template("profile.html", form=form, name=dbFunc.get_student_name(current_user.id), a=a, email=b)
@@ -907,6 +945,7 @@ def calls():
                 dbFunc.add_calls_lesson(a, 4, form.pntwost4.data, form.pntwofn4.data, 2, day_of_week)
                 dbFunc.add_calls_lesson(a, 5, form.pntwost5.data, form.pntwofn5.data, 2, day_of_week)
                 dbFunc.add_calls_lesson(a, 6, form.pntwost6.data, form.pntwofn6.data, 2, day_of_week)
+
         else:
 
             dbFunc.add_calls_lesson(a, 1, form.pnonest1.data, form.pnonefn1.data, 1, "monday")
@@ -992,6 +1031,21 @@ def calls():
             dbFunc.add_calls_lesson(a, 4, form.sbtwost4.data, form.sbtwofn4.data, 2, "saturday")
             dbFunc.add_calls_lesson(a, 5, form.sbtwost5.data, form.sbtwofn5.data, 2, "saturday")
             dbFunc.add_calls_lesson(a, 6, form.sbtwost6.data, form.sbtwofn6.data, 2, "saturday")
+
+            dbFunc.add_calls_lesson(a, 1, form.vstwost1.data, form.sbtwofn1.data, 1, "sunday")
+            dbFunc.add_calls_lesson(a, 2, form.vstwost1.data, form.sbtwofn2.data, 1, "sunday")
+            dbFunc.add_calls_lesson(a, 3, form.vstwost1.data, form.sbtwofn3.data, 1, "sunday")
+            dbFunc.add_calls_lesson(a, 4, form.vstwost1.data, form.sbtwofn4.data, 1, "sunday")
+            dbFunc.add_calls_lesson(a, 5, form.vstwost1.data, form.sbtwofn5.data, 1, "sunday")
+            dbFunc.add_calls_lesson(a, 6, form.vstwost1.data, form.sbtwofn6.data, 1, "sunday")
+
+            dbFunc.add_calls_lesson(a, 1, form.vstwost1.data, form.sbtwofn1.data, 2, "sunday")
+            dbFunc.add_calls_lesson(a, 2, form.vstwost2.data, form.sbtwofn2.data, 2, "sunday")
+            dbFunc.add_calls_lesson(a, 3, form.vstwost3.data, form.sbtwofn3.data, 2, "sunday")
+            dbFunc.add_calls_lesson(a, 4, form.vstwost4.data, form.sbtwofn4.data, 2, "sunday")
+            dbFunc.add_calls_lesson(a, 5, form.vstwost5.data, form.sbtwofn5.data, 2, "sunday")
+            dbFunc.add_calls_lesson(a, 6, form.vstwost6.data, form.sbtwofn6.data, 2, "sunday")
+
         db.session.commit()
         return redirect(url_for("index"))
     return render_template("add_cals.html", form=form)

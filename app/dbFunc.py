@@ -5,7 +5,7 @@ import random
 
 
 def get_day_of_week():
-    days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    days_of_week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     return days_of_week
 
 
@@ -307,7 +307,7 @@ def add_class(school_id, name):
 
     # К добавленному расписанию добавляем уроки.
     for day in get_day_of_week():
-        for i in range(1, 7):
+        for i in range(1, 8):
             add_schedule_days(schedule_id, day, "Пустой", i)
 
     db.session.commit()

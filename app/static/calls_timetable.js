@@ -7,7 +7,7 @@ function toggleCheckbox(element)
         $(".hidden-input").val("First");
 
 
-        var week_day_prefix = ["pn", "vt", "sr", "ct", "pt", "sb"];
+        var week_day_prefix = ["pn", "vt", "sr", "ct", "pt", "sb", "vs"];
 
         for (lesson_number = 1; lesson_number < 7; lesson_number++) {
             var input_name_origin1 = week_day_prefix[0] + "onest" + lesson_number;

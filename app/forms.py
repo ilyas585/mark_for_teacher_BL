@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, Selec
     SelectMultipleField, FileField, validators
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import User
-import email_validator
+
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -85,6 +85,12 @@ class ScheduleForm(FlaskForm):
     saturday4 = SelectField("Суббота", choices=[], validators=[DataRequired()])
     saturday5 = SelectField("Суббота", choices=[], validators=[DataRequired()])
     saturday6 = SelectField("Суббота", choices=[], validators=[DataRequired()])
+    sunday1 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
+    sunday2 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
+    sunday3 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
+    sunday4 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
+    sunday5 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
+    sunday6 = SelectField("Воскресенье", choices=[], validators=[DataRequired()])
 
     submit = SubmitField('Добавить', validators=[DataRequired()])
 

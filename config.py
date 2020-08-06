@@ -13,7 +13,7 @@ class Config(object):
     MAIL_USE_SSL = True
 
     # gmail authentication
-    MAIL_USERNAME ='onextopplay@gmail.com'
+    MAIL_USERNAME ='onextopplay@gmail.com' #gmail
     MAIL_PASSWORD ='enovzewxqolwlbha'
 
     # mail accounts
